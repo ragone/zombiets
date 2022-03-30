@@ -8,7 +8,7 @@ const ZombieComp = (zombie: Zombie) => (
     <div className={`zombie zombie-${zombie.kind}`}>
       <div className="zombie-health">
         {range(zombie["max-health"]).map((i) => (
-          <div key={i} className="heart"></div>
+          <div key={i} className="heart" />
         ))}
       </div>
     </div>
@@ -18,7 +18,7 @@ const ZombieComp = (zombie: Zombie) => (
 const TipsComp = ({ position, header, prose, action }: Tips) => (
   <div className="tips" onClick={() => action && bus.publish(action)}>
     <div className={`tips-box ${position}`}>
-      <div className="tips-arrow"></div>
+      <div className="tips-arrow" />
       <div className="tips-header">{header}</div>
       <div className="tips-prose">{prose}</div>
     </div>
@@ -29,7 +29,7 @@ const PlayerComp = (player: Player) => (
   <div>
     <div className="player-health">
       {range(player["max-health"]).map((i) => (
-        <div key={i} className="heart"></div>
+        <div key={i} className="heart" />
       ))}
     </div>
   </div>
@@ -40,7 +40,7 @@ export const Page = ({ zombies, tips, player }: Store) => (
     <div className="surface">
       <div className="skyline">
         {range(16).map((i) => (
-          <div key={i} className={`building building-${i}`}></div>
+          <div key={i} className={`building building-${i}`} />
         ))}
       </div>
       <div className="zombies">

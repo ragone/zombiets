@@ -1,14 +1,7 @@
 import React from "react";
 import { Player, Store, Zombie, Tips } from "./types";
 import * as bus from "./bus";
-
-const range = (i: number) => {
-  const tmp: number[] = [];
-  for (let j = 0; j < i; j++) {
-    tmp.push(j);
-  }
-  return tmp;
-};
+import { mapValues, range } from "lodash";
 
 const ZombieComp = (zombie: Zombie) => (
   <div className="zombie-position">
@@ -52,8 +45,8 @@ export const Page = ({ zombies, tips, player }: Store) => (
       </div>
       <div className="zombies">
         {zombies &&
-          Object.values(zombies).map((zombie, i) => (
-            <ZombieComp key={i} {...(zombie as unknown as Zombie)} />
+          mapValues(zombies, (zombie, i) => (
+            <ZombieComp key={i} {...zombie} />
           ))}
       </div>
       {player && <PlayerComp {...player} />}

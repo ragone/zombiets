@@ -45,9 +45,7 @@ export const Page = ({ zombies, tips, player }: Store) => (
       </div>
       <div className="zombies">
         {zombies &&
-          mapValues(zombies, (zombie, i) => (
-            <ZombieComp key={i} {...zombie} />
-          ))}
+          mapValues(zombies, (zombie, i) => <ZombieComp key={i} {...zombie} />)}
       </div>
       {player && <PlayerComp {...player} />}
       {tips && <TipsComp {...tips} />}
